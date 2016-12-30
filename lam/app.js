@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var path = require("path");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
-var session = require("session");
+var session = require("express-session");
 var flash = require("flash")
 
 var routes = require("./routes");

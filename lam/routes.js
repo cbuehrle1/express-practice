@@ -14,7 +14,7 @@ router.get("/", function(req, res, next) {
   User.find()
     .sort({ createAt: "descending" })
     .exec(function(err, users) {
-      if (err) { return next(err): }
+      if (err) { return next(err) }
       res.render("index", { user: users });
     });
 });
