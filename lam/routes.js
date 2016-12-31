@@ -1,6 +1,7 @@
 var express = require("express");
 var User = require("./models/user");
 var passport = require("passport");
+var flash = require("connect-flash");
 
 var router = express.Router();
 
@@ -86,7 +87,7 @@ router.get("/edit", ensureAuthenticated, function(req, res) {
 });
 
 router.post("/edit", ensureAuthenticated, function (req, res, next) {
-  req.user.displayName = req.body.displayName;
+  req.user.displayName = req.body.displayname;
   req.user.bio = req.body.bio;
   req.user.save(function(err) {
     if (err) {
