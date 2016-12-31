@@ -9,7 +9,7 @@ function ensureAuthenticated(req, res, next) {
     next();
   } else {
     req.flash("info", "You must be logged in to see this page.");
-    res.redirect(".login");
+    res.redirect("/login");
   }
 }
 
@@ -74,7 +74,7 @@ router.post("/login", passport.authenticate("login", {
   successRedirect: "/",
   failureRedirect: "/login",
   failureFlash: true
-});
+}));
 
 router.get("/logout", function(req, res) {
   req.logout();

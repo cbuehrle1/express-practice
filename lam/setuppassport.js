@@ -1,6 +1,7 @@
 var passport = require("passport");
 var User = require("./models/user");
 var LocalStrategy = require("passport-local").Strategy;
+var mongoose = require("mongoose");
 
 module.exports = function() {
 
@@ -9,7 +10,7 @@ module.exports = function() {
   });
 
   passport.deserializeUser(function(id, done) {
-    User.findbyId(id, function(err, user) {
+    User.findById(id, function(err, user) {
       done(err, user);
     });
   });
